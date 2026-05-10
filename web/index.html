@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Atlas Market Engine</title>
+    <link rel="stylesheet" href="/web/style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="toolbar">
+        <div>
+          <p class="eyebrow">Source-visible noncommercial demo</p>
+          <h1>Atlas Market Engine</h1>
+        </div>
+        <div class="actions">
+          <button id="start">Start</button>
+          <button id="step">Step</button>
+        </div>
+      </section>
+      <section class="grid">
+        <article>
+          <span>Round</span>
+          <strong id="round">0</strong>
+        </article>
+        <article>
+          <span>Available Properties</span>
+          <strong id="available">0</strong>
+        </article>
+        <article>
+          <span>Transactions</span>
+          <strong id="transactions">0</strong>
+        </article>
+      </section>
+      <section class="panel">
+        <h2>Recent Events</h2>
+        <pre id="events">Ready.</pre>
+      </section>
+    </main>
+    <script>
+      const round = document.querySelector("#round");
+      const available = document.querySelector("#available");
+      const transactions = document.querySelector("#transactions");
+      const events = document.querySelector("#events");
+
+      function render(payload) {
+        const state = payload.state || payload.summary || {};
+        round.textContent = state.round ?? 0;
+        available.textContent = state.available_properties ?? 0;
+        transactions.textContent = (state.transactions || []).length;
+        events.textContent = JSON.stringify(payload.round || state.transactions || payload, null, 2);
+      }
+
+      async function post(url, body) {
+        const res = await fetch(url, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(body || {})
+        });
+        render(await res.json());
+      }
+
+      document.querySelector("#start").addEventListener("click", () => post("/start", {seed: 42}));
+      document.querySelector("#step").addEventListener("click", () => post("/step"));
+      fetch("/status").then((res) => res.json()).then(render);
+    </script>
+  </body>
+</html>

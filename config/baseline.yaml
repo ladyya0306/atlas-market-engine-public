@@ -1,0 +1,5 @@
+public_demo:
+  version: "1.0.0"
+  default_seed: 42
+  default_rounds: 1
+  note: "Toy configuration for the public noncommercial demo."

@@ -1,0 +1,17 @@
+{
+  "name": "atlas-market-engine-public",
+  "version": "1.0.0",
+  "description": "Source-visible noncommercial public demo for Atlas Market Engine.",
+  "private": false,
+  "scripts": {
+    "test:public": "python -m pytest tests/test_public_package.py -q",
+    "smoke:public": "python scripts/public_smoke_test.py --rounds 1 --seed 42"
+  },
+  "keywords": [
+    "multi-agent",
+    "simulation",
+    "real-estate"
+  ],
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE"
+}
