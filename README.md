@@ -6,7 +6,7 @@
 
 Atlas Market Engine is a source-visible, noncommercial multi-agent real-estate market simulation demo. It turns buyers, sellers, properties, affordability checks, and transaction rules into a small runnable market so you can inspect how local market behavior emerges.
 
-Atlas Market Engine 是一个源码可见、非商业许可公开的房地产市场多智能体仿真演示项目。它把买方、卖方、房源、支付能力校验和成交规则放进一个可运行的小型市场，用来观察局部市场行为如何形成。
+Atlas Market Engine 是一个源码可见、非商业许可公开的房地产市场多智能体仿真系统公开演示版。它把买方、卖方、房源、支付能力校验和成交规则放进一个可运行的小型市场，用来观察局部市场行为如何形成。
 
 ## 10-Second Version / 10 秒看懂
 
@@ -108,7 +108,7 @@ Public-demo modules:
 
 ## Public Edition Scope / 公开版边界
 
-This repository is designed for:
+This repository is the public demo edition of the Atlas Market Engine system. It is designed for:
 
 - brand presence and technical review;
 - teaching and noncommercial research demos;
@@ -123,7 +123,7 @@ It deliberately does not include:
 - production deployment materials;
 - high-value reusable decision templates.
 
-本仓库适合：
+本仓库是 Atlas Market Engine 房地产市场多智能体仿真系统的公开演示版，适合：
 
 - 品牌展示和技术审阅；
 - 教学演示和非商业研究原型；
